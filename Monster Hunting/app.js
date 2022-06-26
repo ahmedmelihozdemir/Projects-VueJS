@@ -48,6 +48,7 @@ new Vue ({
         reset:function(){
             this.playerHealth = 100;
             this.monsterHealth = 100;
+            this.logs = [];
         },
         addToLog: function(log){
             this.logs.push(log);
