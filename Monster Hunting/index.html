@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Canavar Avı</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="css/foundation.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div id="app">
+
+            <section class="row">
+                <div class="small-6 columns">
+                    <h1 class="text-center">You</h1>
+                    <div class="healthbar">
+                        <div
+                            :style="{ width: playerHealth + '%' }"
+                            class="healthbar text-center"
+                            style="
+                                background-color: green;
+                                margin: 0;
+                                color: white;
+                            "
+                        > {{playerHealth}}% </div>
+                    </div>
+                </div>
+                <div class="small-6 columns">
+                    <h1 class="text-center">Monster</h1>
+                    <div class="healthbar">
+                        <div
+                            :style="{ width: monsterHealth + '%' }"
+                            class="healthbar text-center"
+                            style="
+                                background-color: green;
+                                margin: 0;
+                                color: white;
+                            "
+                        > {{monsterHealth}}% </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row controls" v-if="!gameIsOn">
+                <div class="small-12 columns">
+                    <button id="start-game" @click="startGame">
+                        New Game
+                    </button>
+                </div>
+            </section>
+
+            <section class="row controls" v-if="gameIsOn">
+                <div class="small-12 columns">
+                    <button id="attack" @click="attack">Attack</button>
+                    <button id="special-attack" @click="specialAttack">Special Attack</button>
+                    <button id="heal" @click="healthUp">Heal</button>
+                    <button id="give-up" @click="giveUp">Give Up!</button>
+                    <button id="reset" @click="reset">Restart</button>
+
+                </div>
+            </section>
+
+            <section class="row log" v-if="logs.length >0">
+                <div class="small-12 columns">
+                    <ul>
+                        <li 
+                        :class="{'player-turn': log.turn == 'player', 'monster-turn': log.turn == 'monster'}"
+                        v-for="log in logs"> {{log.text}} </li>
+
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <script src="app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    </body>
+</html>
