@@ -9,8 +9,8 @@
     <h6>2. Child Component üzerinden gelen veri: {{secondChildData}}</h6>
     <hr>
     <div class="row">
-      <appUserDetails @data="childData= $event" :name="title"></appUserDetails>
-      <appUserEdit @veri="secondChildData= $event" :name2="name2"></appUserEdit>
+      <appUserDetails :age="age" @data="childData= $event" :name="title"></appUserDetails>
+      <appUserEdit @editedAge="age=$event" @veri="secondChildData= $event" :name2="name2" :age="age"></appUserEdit>
       
     </div>
   </div>
@@ -31,6 +31,8 @@ export default {
       name2: "Ahmet",
       childData: "",
       secondChildData: "",
+      age:25,
+
     }
   },
   methods: {
@@ -56,5 +58,6 @@ div.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 </style>
