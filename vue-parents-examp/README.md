@@ -1,4 +1,4 @@
-# vue-parents-examp
+# Connection between components
 
 > A Vue.js project
 
