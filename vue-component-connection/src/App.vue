@@ -5,8 +5,6 @@
       <button @click="selectedComponent='appRed'" class="btn btn-danger">Red</button>
       <button @click="selectedComponent='appGreen'" class="btn btn-success">Green</button>
       <hr />
-      <p>{{selectedComponent}}</p>
-      <hr>
       <component :is="selectedComponent">
         <h3>{{selectedComponent}} Theme</h3>
         <p>Contents</p>
