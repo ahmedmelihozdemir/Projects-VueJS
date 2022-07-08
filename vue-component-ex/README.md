@@ -1,4 +1,4 @@
-# vue-component-ex
+# Facebook Clone
 
 > A Vue.js project
 
