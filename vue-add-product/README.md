@@ -1,4 +1,4 @@
-# vue-add-product
+# Add Product Projects
 
 > A Vue.js project
 
